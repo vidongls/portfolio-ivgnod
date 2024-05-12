@@ -1,20 +1,60 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
+// tailwind.config.js
+
+const { colors: defaultColors } = require('tailwindcss/defaultTheme')
+
+const colors = {
+  ...defaultColors,
+  ...{
+    primary: {
+      DEFAULT: '#0e100f',
+    },
+    secondary: {
+      DEFAULT: '#212121',
+    },
+    tertiary: {
+      DEFAULT: '#fffce1',
+    },
+  },
+}
+
+const plugin = function ({ addUtilities }: any) {
+  const newUtilities = {
+    '.text-gradient-primary': {
+      background: 'linear-gradient(111.45deg, #FF8709 19.42%, #F7BDF8 73.08%)',
+      '-webkit-background-clip': 'text',
+      'background-clip': 'text',
+      color: 'transparent',
+    },
+    '.bg-gradient-primary': {
+      background: 'linear-gradient(111.45deg, #FF8709 19.42%, #F7BDF8 73.08%)',
+    },
+    '.text-gradient-secondary': {
+      background: 'radial-gradient(152.22% 128.73% at 133.77% 74.23%, #DFDCFF 27.08%, #A69EFF 100%)',
+      '-webkit-background-clip': 'text',
+      'background-clip': 'text',
+      color: 'transparent',
+    },
+    '.bg-gradient-secondary': {
+      background: 'radial-gradient(152.22% 128.73% at 133.77% 74.23%, #DFDCFF 27.08%, #A69EFF 100%)',
+    },
+  }
+
+  return addUtilities(newUtilities, ['responsive', 'hover'])
+}
 
 const config: Config = {
+  darkMode: ['class'],
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+      colors: colors,
     },
   },
-  plugins: [],
-};
-export default config;
+  plugins: [require('tailwindcss-animate'), plugin],
+}
+export default config
