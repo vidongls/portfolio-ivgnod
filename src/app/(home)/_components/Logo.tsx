@@ -14,36 +14,68 @@ const Logo = (props: Props) => {
     const boxes = document.querySelector('#logo-ivgnod')
 
     tl.current = gsap
-      .timeline({ paused: true })
-      .from(boxes, { opacity: 0, display: 'none' })
-      .to(boxes, { rotation: 360, opacity: 1, ease: Power2.easeInOut, display: 'block' })
+      .timeline({ paused: true, yoyo: true })
+      .from(boxes, { opacity: 0, y: 10, visibility: 'hidden' })
+      .to(boxes, {
+        rotation: 360,
+        opacity: 1,
+        ease: Power2.easeInOut,
+        y: 0,
+        visibility: 'visible',
+        marginRight: '16px',
+      })
 
     const text = document.querySelector('#text-e-logo')
-    tlText.current = gsap.timeline({ paused: true }).to(text, { opacity: 0, display: 'none' })
+    const textRight = document.querySelector('#text-right-logo')
+
+    tlText.current = gsap
+      .timeline({ paused: true, yoyo: true })
+      .to(text, { opacity: 0, y: -70, duration: 0.7, ease: Power2.easeInOut })
+      .from(textRight, {
+        x: 10,
+      })
+      .to(textRight, {
+        x: 5,
+      })
   }, [])
 
   const onSpin = () => {
-    if (!tl.current.isActive()) {
-      tlText.current.play(0)
-      tl.current.play(0)
-    }
+    tlText.current.duration(1).play(0)
+    tl.current.play(0)
+  }
+
+  const onSpinRevert = () => {
+    tlText.current.duration(0.7).reversed(!tlText.current.reversed())
+    tl.current.reversed(!tl.current.reversed())
   }
 
   return (
-    <div
-      className="flex items-center gap-6"
-      onMouseEnter={onSpin}
-    >
-      <h2 className="relative flex items-center text-[32px] font-bold text-tertiary">
+    <div className="flex items-center gap-6">
+      <h2
+        className="relative flex items-center text-[32px] font-bold text-tertiary"
+        onMouseEnter={onSpin}
+        onMouseLeave={onSpinRevert}
+      >
         L<span id="text-e-logo">e</span>
-        <Image
-          src="/image/pinwheel.svg"
-          alt="leminhquyen"
-          id="logo-ivgnod"
-          width={32}
-          height={32}
-        />
-        Minh Quyen
+        <span
+          id="text-right-logo"
+          className="flex items-center"
+        >
+          <Image
+            src="/image/pinwheel.svg"
+            alt="leminhquyen"
+            id="logo-ivgnod"
+            width={30}
+            height={30}
+            className="-translate-x-4"
+          />
+          <span
+            id="text-fullname"
+            className="-translate-x-7"
+          >
+            Minh Quyen
+          </span>
+        </span>
       </h2>
     </div>
   )

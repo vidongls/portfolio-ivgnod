@@ -55,6 +55,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roobert: ['var(--font-roobert)'],
+      },
       colors: colors,
       height: {
         ...defaultConfigVar.theme.height,

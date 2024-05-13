@@ -1,9 +1,44 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 
-const inter = Inter({ subsets: ['latin'] })
+import localFont from '@next/font/local'
+
+const roobert = localFont({
+  src: [
+    {
+      path: '../../public/fonts/RoobertLight.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/RoobertRegular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/RoobertMedium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/RoobertSemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/RoobertBold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/RoobertHeavy.ttf',
+      weight: '800',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-roobert',
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,7 +55,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
     >
-      <body className={inter.className}>
+      <body className={roobert.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
