@@ -15,14 +15,14 @@ const Logo = (props: Props) => {
 
     tl.current = gsap
       .timeline({ paused: true, yoyo: true })
-      .from(boxes, { opacity: 0, y: 10, visibility: 'hidden' })
+      .from(boxes, { opacity: 0, y: 30, visibility: 'hidden' })
       .to(boxes, {
         rotation: 360,
         opacity: 1,
         ease: Power2.easeInOut,
         y: 0,
         visibility: 'visible',
-        marginRight: '16px',
+        marginRight: '20px',
       })
 
     const text = document.querySelector('#text-e-logo')
@@ -35,7 +35,7 @@ const Logo = (props: Props) => {
         x: 10,
       })
       .to(textRight, {
-        x: 5,
+        x: 7,
       })
   }, [])
 
@@ -50,9 +50,9 @@ const Logo = (props: Props) => {
   }
 
   return (
-    <div className="flex items-center gap-6">
+    <div className="relative flex items-center gap-6">
       <h2
-        className="relative flex items-center text-[32px] font-bold text-tertiary"
+        className="absolute top-1/2 flex items-center text-[32px] font-bold text-tertiary"
         onMouseEnter={onSpin}
         onMouseLeave={onSpinRevert}
       >
@@ -71,7 +71,7 @@ const Logo = (props: Props) => {
           />
           <span
             id="text-fullname"
-            className="-translate-x-7"
+            className="-translate-x-8"
           >
             Minh Quyen
           </span>
