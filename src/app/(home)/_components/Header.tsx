@@ -1,11 +1,13 @@
 import Logo from './Logo'
+import Navbar from './Navbar'
 
 type Props = {}
 
 const Header = (props: Props) => {
   return (
-    <div className="h-22 px-20 py-6">
+    <div className="flex h-22 items-center justify-between bg-primary px-20 py-6">
       <Logo />
+      <Navbar />
     </div>
   )
 }

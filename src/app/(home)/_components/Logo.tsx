@@ -1,6 +1,7 @@
 'use client'
 import { gsap, Power2, useGSAP } from '@/lib/gsap'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRef } from 'react'
 
 type Props = {}
@@ -50,35 +51,37 @@ const Logo = (props: Props) => {
 
   return (
     <div
-      className="relative flex items-center gap-6"
+      className="relative flex flex-1 items-center gap-6"
       ref={container}
     >
-      <h2
-        className="absolute top-1/2 flex items-center text-[32px] font-bold text-tertiary"
-        onMouseEnter={onSpin}
-        onMouseLeave={onSpinRevert}
-      >
-        L<span id="text-e-logo">e</span>
-        <Image
-          src="/image/pinwheel.svg"
-          alt="leminhquyen"
-          id="logo-ivgnod"
-          width={24}
-          height={24}
-          className="-translate-x-4"
-        />
-        <span
-          id="text-right-logo"
-          className="flex items-center"
+      <Link href={'/'}>
+        <h2
+          className="absolute top-1/2 flex -translate-y-1/2 items-center text-[32px] font-bold text-tertiary"
+          onMouseEnter={onSpin}
+          onMouseLeave={onSpinRevert}
         >
+          L<span id="text-e-logo">e</span>
+          <Image
+            src="/image/pinwheel.svg"
+            alt="leminhquyen"
+            id="logo-ivgnod"
+            width={24}
+            height={24}
+            className="-translate-x-4"
+          />
           <span
-            id="text-fullname"
-            className="-translate-x-7"
+            id="text-right-logo"
+            className="flex items-center"
           >
-            Minh Quyen
+            <span
+              id="text-fullname"
+              className="-translate-x-7"
+            >
+              Minh Quyen
+            </span>
           </span>
-        </span>
-      </h2>
+        </h2>
+      </Link>
     </div>
   )
 }

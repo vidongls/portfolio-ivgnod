@@ -17,6 +17,7 @@ const colors = {
     tertiary: {
       DEFAULT: '#fffce1',
     },
+    gray_50: '#7C7C6F',
   },
 }
 

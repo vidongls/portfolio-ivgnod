@@ -2,19 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-*,
-html {
-  font-family: var(--font-roobert);
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .box {
