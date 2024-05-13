@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss'
 // tailwind.config.js
+import resolveConfig from 'tailwindcss/resolveConfig'
+import defaultConfig from 'tailwindcss/defaultConfig'
 
 const { colors: defaultColors } = require('tailwindcss/defaultTheme')
 
@@ -42,6 +44,7 @@ const plugin = function ({ addUtilities }: any) {
 
   return addUtilities(newUtilities, ['responsive', 'hover'])
 }
+const defaultConfigVar = resolveConfig(defaultConfig)
 
 const config: Config = {
   darkMode: ['class'],
@@ -53,6 +56,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: colors,
+      height: {
+        ...defaultConfigVar.theme.height,
+        22: '88px',
+      },
     },
   },
   plugins: [require('tailwindcss-animate'), plugin],
