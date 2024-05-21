@@ -1,11 +1,17 @@
+import { MutableRefObject } from 'react'
 import Logo from './Logo'
 import Navbar from './Navbar'
 
-type Props = {}
+type Props = {
+  ref?: MutableRefObject<any>
+}
 
-const Header = (props: Props) => {
+const Header = ({ ref }: Props) => {
   return (
-    <div className="flex h-22 items-center justify-between bg-primary px-20 py-6">
+    <div
+      className="fixed left-0 top-0 z-50 flex h-22 w-full items-center justify-between bg-primary px-20 py-6"
+      ref={ref}
+    >
       <Logo />
       <Navbar />
     </div>
