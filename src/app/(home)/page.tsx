@@ -148,7 +148,7 @@ export default function Home() {
       <Introduction />
       <div
         id="container-project"
-        className="flex w-[400%] flex-wrap"
+        className="flex w-[300%] flex-wrap"
       >
         <MyProjects />
       </div>
