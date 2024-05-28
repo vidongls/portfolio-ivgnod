@@ -43,7 +43,6 @@ const plugin = function ({ addUtilities }: any) {
       background: 'radial-gradient(152.22% 128.73% at 133.77% 74.23%, #DFDCFF 27.08%, #A69EFF 100%)',
     },
   }
-  background:;
 
   return addUtilities(newUtilities, ['responsive', 'hover'])
 }

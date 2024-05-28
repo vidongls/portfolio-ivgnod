@@ -53,11 +53,11 @@ export const PenDraw = () => {
         >
           <stop
             offset="0.427083"
-            stop-color="#FF8709"
+            stopColor="#FF8709"
           />
           <stop
             offset="0.791667"
-            stop-color="#F7BDF8"
+            stopColor="#F7BDF8"
           />
         </linearGradient>
         <linearGradient
@@ -70,11 +70,11 @@ export const PenDraw = () => {
         >
           <stop
             offset="0.427083"
-            stop-color="#FF8709"
+            stopColor="#FF8709"
           />
           <stop
             offset="0.791667"
-            stop-color="#F7BDF8"
+            stopColor="#F7BDF8"
           />
         </linearGradient>
         <linearGradient
@@ -87,11 +87,11 @@ export const PenDraw = () => {
         >
           <stop
             offset="0.427083"
-            stop-color="#FF8709"
+            stopColor="#FF8709"
           />
           <stop
             offset="0.791667"
-            stop-color="#F7BDF8"
+            stopColor="#F7BDF8"
           />
         </linearGradient>
       </defs>

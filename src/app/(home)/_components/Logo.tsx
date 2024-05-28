@@ -45,10 +45,9 @@ const Logo = (props: Props) => {
           id="logo-ivgnod"
           width={24}
           height={24}
-          className="-translate-x-4"
         />
         <h2
-          className="text-[32px] font-bold text-tertiary"
+          className="ml-2 text-[32px] font-bold text-tertiary"
           onMouseEnter={onSpin}
           onMouseLeave={onSpinRevert}
         >

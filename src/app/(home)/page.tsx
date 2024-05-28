@@ -3,6 +3,7 @@
 import { ScrollTrigger, gsap, useGSAP } from '@/lib/gsap'
 import Introduction from './_components/Introduction'
 import MainSection from './_components/MainSection'
+import MyProjects from './_components/MyProjects'
 
 export default function Home() {
   useGSAP(() => {
@@ -119,6 +120,25 @@ export default function Home() {
     }
   })
 
+  useGSAP(() => {
+    const panels: any = gsap.utils.toArray('.panel2')
+    const content = document.querySelector('#container-project')
+
+    if (!content) return
+
+    gsap.to(panels, {
+      xPercent: -100 * (panels.length - 1),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#container-project',
+        pin: true,
+        scrub: 1,
+        snap: 1 / (panels.length - 1),
+        end: () => '+=' + (content as HTMLElement).offsetWidth,
+      },
+    })
+  })
+
   return (
     <div
       className=" dark:bg-primary"
@@ -126,6 +146,12 @@ export default function Home() {
     >
       <MainSection />
       <Introduction />
+      <div
+        id="container-project"
+        className="flex w-[400%] flex-wrap"
+      >
+        <MyProjects />
+      </div>
     </div>
   )
 }
